@@ -24,6 +24,11 @@ app.use("/notes", notesRouter);
 app.use("/users", userRouter);
 app.use("/login", loginRouter);
 
+if (process.env.NODE_ENV === "test") {
+  const testingRouter = require("./controllers/testing");
+  app.use("/testing", testingRouter);
+}
+
 app.use(middleware.errorHandler);
 
 module.exports = app;
