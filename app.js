@@ -20,9 +20,9 @@ app.use(express.static("dist"));
 app.use(express.json());
 app.use(middleware.requestLogger);
 
-app.use("/notes", notesRouter);
-app.use("/users", userRouter);
-app.use("/login", loginRouter);
+app.use("/api/notes", notesRouter);
+app.use("/api/users", userRouter);
+app.use("/api/login", loginRouter);
 
 if (process.env.NODE_ENV === "test") {
   const testingRouter = require("./controllers/testing");
